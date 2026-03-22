@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АВАНГАРД — Неформальные движения в СССР</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ruslan+Display&family=Underdog&family=Oswald:wght@400;500;700&family=PT+Serif:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+
+  <!-- Main Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- HERO SECTION: АВАНГАРД -->
+<header class="hero" id="top">
+  <div class="hero__noise" aria-hidden="true"></div>
+  <img src="https://image.qwenlm.ai/public_source/6d22f994-5fb0-497b-ae12-335ddd2744b5/16af7827a-2924-48c1-82a3-99723dae4a3e.png"
+       alt="Коллаж: неформальные движения СССР"
+       class="hero__collage">
+  <div class="hero__overlay"></div>
+
+  <div class="container hero__content">
+    <h1 class="hero__title font-title">НЕФОРМАЛЬНЫЕ ДВИЖЕНИЯ</h1>
+    <p class="hero__subtitle"> . </p>
+    <div class="stamp">1945 — 1991</div>
+
+    <nav class="hero__nav" aria-label="Разделы сайта">
+      <a href="#timeline">Лента</a>
+      <a href="#visuals">Образы</a>
+      <a href="#media">Музыка</a>
+      <a href="#map">Карта</a>
+      <a href="#quiz">Тест</a>
+    </nav>
+  </div>
+</header>
+
+<main class="main">
+
+  <!-- Timeline Section -->
+  <section class="container section" id="timeline">
+    <div class="section__head">
+      <h2>Интерактивная хронологическая лента</h2>
+      <p>Выберите карточку периода, чтобы увидеть структурированную информацию: одежда, музыка, сленг, центры активности, причины появления и влияние.</p>
+    </div>
+
+    <div class="timeline-wrap">
+      <div id="timelineList" class="timeline" aria-label="Лента движений"></div>
+
+      <aside class="movement-panel" id="movementPanel" aria-live="polite">
+        <h3 id="movementTitle">Выберите движение</h3>
+        <img id="movementImage" class="movement-panel__image" src="" alt="Образ движения">
+        <p id="movementSummary" class="movement-panel__summary">Нажмите на карточку в ленте слева.</p>
+        <div class="movement-meta">
+          <div>
+            <h4>Одежда и визуальные коды</h4>
+            <p id="movementStyle"></p>
+          </div>
+          <div>
+            <h4>Музыка</h4>
+            <p id="movementMusic"></p>
+          </div>
+          <div>
+            <h4>Сленг / жаргон</h4>
+            <p id="movementSlang"></p>
+          </div>
+          <div>
+            <h4>Центры активности</h4>
+            <p id="movementCenters"></p>
+          </div>
+          <div>
+            <h4>Причины появления</h4>
+            <p id="movementReasons"></p>
+          </div>
+          <div>
+            <h4>Влияние на общество</h4>
+            <p id="movementImpact"></p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Media Section -->
+  <section class="container section" id="media">
+    <div class="section__head">
+      <h2>Аудиовизуальное погружение</h2>
+      <p>Выберите движение: ниже появится характерный плейлист и ссылки на короткие видео-интервью или фрагменты фильмов/концертов.</p>
+    </div>
+
+    <div class="media-box">
+      <label for="mediaSelect">Выбрать движение:</label>
+      <select id="mediaSelect"></select>
+
+      <div class="media-columns">
+        <div class="media-block">
+          <h3>Плейлист</h3>
+          <ul id="playlist" class="media-list"></ul>
+        </div>
+        <div class="media-block">
+          <h3>Видео-фрагменты</h3>
+          <ul id="videoList" class="media-list"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="container section" id="map">
+    <div class="section__head">
+      <h2>Карта городов и истории</h2>
+      <p>Выберите город на схеме, чтобы узнать, какие движения были наиболее заметны и как формировалась локальная сцена.</p>
+    </div>
+
+    <div class="map-layout">
+      <div class="city-map" role="group" aria-label="Карта городов СССР">
+        <p class="city-map__hint">Нажмите на город, чтобы открыть локальную историю.</p>
+        <div id="cityMapCanvas" class="city-map__canvas" aria-label="Интерактивная карта городов"></div>
+        <p class="city-map__credit">Карта: OpenStreetMap.</p>
+      </div>
+
+      <article class="city-story" aria-live="polite">
+        <h3 id="cityTitle">Выберите город</h3>
+        <p id="cityText">Нажмите на маркер на карте, чтобы увидеть локальную историю неформальных движений.</p>
+        <p><strong>Ключевые движения:</strong> <span id="cityMovements">-</span></p>
+        <p><strong>Пространства активности:</strong> <span id="cityPlaces">-</span></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="container section" id="quiz">
+    <div class="section__head">
+      <h2>Шуточный тест: «Определи свой тип»</h2>
+      <p>Ответьте на 4 вопроса. Результат покажет, с какой субкультурой у вас больше всего эстетических совпадений.</p>
+    </div>
+
+    <form id="typeQuiz" class="quiz" novalidate>
+      <fieldset>
+        <legend>1. Что вам ближе в одежде?</legend>
+        <label><input type="radio" name="q1" value="stilyagi" required> Яркий костюм и броские аксессуары</label>
+        <label><input type="radio" name="q1" value="lyubery"> Спортивные штаны и тяжелые ботинки</label>
+        <label><input type="radio" name="q1" value="punk"> Пиджак, тельняшка и нарочитый хаос</label>
+        <label><input type="radio" name="q1" value="hippie"> Длинные волосы и простые естественные тона</label>
+        <label><input type="radio" name="q1" value="newwave"> Эклектика «новых романтиков» и постпанка</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>2. Идеальный вечер?</legend>
+        <label><input type="radio" name="q2" value="stilyagi" required> Танцы и живой ритм</label>
+        <label><input type="radio" name="q2" value="lyubery"> Тренировка в качалке и районная компания</label>
+        <label><input type="radio" name="q2" value="punk"> Грубый сет в андеграундном клубе</label>
+        <label><input type="radio" name="q2" value="hippie"> Сейшн под гитару и ночная вписка</label>
+        <label><input type="radio" name="q2" value="newwave"> Дискотека и экспериментальная электроника</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>3. Что для вас важнее всего?</legend>
+        <label><input type="radio" name="q3" value="stilyagi" required> Самовыражение через стиль</label>
+        <label><input type="radio" name="q3" value="lyubery"> Сила, дисциплина и защита «своих»</label>
+        <label><input type="radio" name="q3" value="punk"> Эпатаж и отказ от правил</label>
+        <label><input type="radio" name="q3" value="hippie"> Свобода, пацифизм и неформальное общение</label>
+        <label><input type="radio" name="q3" value="newwave"> Независимость вкуса и творческий поиск</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>4. Какой формат музыки вам ближе?</legend>
+        <label><input type="radio" name="q4" value="stilyagi" required> Свинг, буги-вуги, ранний джаз</label>
+        <label><input type="radio" name="q4" value="lyubery"> Тяжелые ритмы и уличная напористость</label>
+        <label><input type="radio" name="q4" value="punk"> Панк-рок, хардкор и сырой звук</label>
+        <label><input type="radio" name="q4" value="hippie"> Авторская песня, психоделика и акустика</label>
+        <label><input type="radio" name="q4" value="newwave"> New wave, постпанк и электронные эксперименты</label>
+      </fieldset>
+
+      <button type="submit" class="quiz__submit">Показать результат</button>
+      <p id="quizResult" class="quiz__result" aria-live="polite"></p>
+    </form>
+  </section>
+
+  <!-- Team Section -->
+  <section class="container section" id="team">
+    <div class="section__head">
+      <h2>Команда Проекта</h2>
+    </div>
+    <div class="team-grid">
+      <div class="team-card">
+        <div class="team-icon">📚</div>
+        <h3>Дадаева Лиза Алмановна</h3>
+        <p class="team-role">Историк-исследователь</p>
+        <ul>
+          <li>Поиск и проверка информации</li>
+          <li>Структурирование материала</li>
+          <li>Написание текстов</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="team-icon">🎨</div>
+        <h3>Кобленц Мария Алексеевна</h3>
+        <p class="team-role">Дизайнер-визуализатор</p>
+        <ul>
+          <li>Поиск визуального контента</li>
+          <li>Создание коллажей и инфографики</li>
+          <li>Подбор музыки и видео</li>
+        </ul>
+      </div>
+      <div class="team-card">
+        <div class="team-icon">💻</div>
+        <h3>Логинова Дарья Андреевна</h3>
+        <p class="team-role">Технический специалист</p>
+        <ul>
+          <li>Выбор платформы</li>
+          <li>Техническая сборка</li>
+          <li>Контроль целостности</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__content">
+    <p>© 2024 АВАНГАРД — Неформальные движения в СССР. Учебный проект.</p>
+    <a href="#top">Наверх ↑</a>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="script.js"></script>
+</body>
+</html>
