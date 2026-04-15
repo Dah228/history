@@ -182,6 +182,8 @@ const videoListEl = document.getElementById("videoList");
 
 // ===== RENDER TIMELINE =====
 function renderTimeline() {
+  if (!timelineList) return;
+
   movements.forEach((movement, index) => {
     const button = document.createElement("button");
     button.className = "timeline-item";
@@ -215,24 +217,38 @@ function setActiveMovement(id) {
     el.classList.toggle("is-active", el.dataset.id === id);
   });
 
-  document.getElementById("movementTitle").textContent = `${active.title} (${active.years})`;
-  
+  const movementTitle = document.getElementById("movementTitle");
+  const movementImage = document.getElementById("movementImage");
+  const movementSummary = document.getElementById("movementSummary");
+  const movementStyle = document.getElementById("movementStyle");
+  const movementMusic = document.getElementById("movementMusic");
+  const movementSlang = document.getElementById("movementSlang");
+  const movementCenters = document.getElementById("movementCenters");
+  const movementReasons = document.getElementById("movementReasons");
+  const movementImpact = document.getElementById("movementImpact");
+
+  if (movementTitle) movementTitle.textContent = `${active.title} (${active.years})`;
+
   // Handle image (string or array)
   const imgSrc = Array.isArray(active.image) ? active.image[0] : active.image;
-  document.getElementById("movementImage").src = imgSrc;
-  document.getElementById("movementImage").alt = `Образ движения: ${active.title}`;
-  
-  document.getElementById("movementSummary").textContent = active.summary;
-  document.getElementById("movementStyle").textContent = active.style;
-  document.getElementById("movementMusic").textContent = active.music;
-  document.getElementById("movementSlang").textContent = active.slang;
-  document.getElementById("movementCenters").textContent = active.centers;
-  document.getElementById("movementReasons").textContent = active.reasons;
-  document.getElementById("movementImpact").textContent = active.impact;
+  if (movementImage) {
+    movementImage.src = imgSrc;
+    movementImage.alt = `Образ движения: ${active.title}`;
+  }
+
+  if (movementSummary) movementSummary.textContent = active.summary;
+  if (movementStyle) movementStyle.textContent = active.style;
+  if (movementMusic) movementMusic.textContent = active.music;
+  if (movementSlang) movementSlang.textContent = active.slang;
+  if (movementCenters) movementCenters.textContent = active.centers;
+  if (movementReasons) movementReasons.textContent = active.reasons;
+  if (movementImpact) movementImpact.textContent = active.impact;
 }
 
 // ===== RENDER MEDIA SELECTOR =====
 function renderMediaSelector() {
+  if (!mediaSelect) return;
+
   movements.forEach((movement) => {
     const option = document.createElement("option");
     option.value = movement.id;
@@ -251,7 +267,7 @@ function renderMediaSelector() {
 // ===== UPDATE MEDIA CONTENT =====
 function updateMedia(id) {
   const movement = movements.find((item) => item.id === id);
-  if (!movement) return;
+  if (!movement || !playlistEl || !videoListEl) return;
 
   playlistEl.innerHTML = "";
   movement.playlist.forEach((track) => {
@@ -267,13 +283,16 @@ function updateMedia(id) {
     videoListEl.appendChild(li);
   });
 
-  mediaSelect.value = id;
+  if (mediaSelect) mediaSelect.value = id;
 }
 
 // ===== WIRE CITY MAP (LEAFLET) =====
 function wireCityMap() {
-  if (typeof L === "undefined") {
-    document.getElementById("cityText").textContent = "Карта не загрузилась. Проверьте подключение к интернету и перезагрузите страницу.";
+  const cityMapCanvas = document.getElementById("cityMapCanvas");
+  const cityText = document.getElementById("cityText");
+
+  if (typeof L === "undefined" || !cityMapCanvas) {
+    if (cityText) cityText.textContent = "Карта не загрузилась. Проверьте подключение к интернету и перезагрузите страницу.";
     return;
   }
 
@@ -310,10 +329,15 @@ function wireCityMap() {
     });
 
     marker.on("click", () => {
-      document.getElementById("cityTitle").textContent = story.title;
-      document.getElementById("cityText").textContent = story.text;
-      document.getElementById("cityMovements").textContent = story.movements;
-      document.getElementById("cityPlaces").textContent = story.places;
+      const cityTitle = document.getElementById("cityTitle");
+      const cityText = document.getElementById("cityText");
+      const cityMovements = document.getElementById("cityMovements");
+      const cityPlaces = document.getElementById("cityPlaces");
+
+      if (cityTitle) cityTitle.textContent = story.title;
+      if (cityText) cityText.textContent = story.text;
+      if (cityMovements) cityMovements.textContent = story.movements;
+      if (cityPlaces) cityPlaces.textContent = story.places;
       map.panTo(latlng);
     });
   });
@@ -321,10 +345,15 @@ function wireCityMap() {
   // Set default city
   const defaultCity = cityStories.moscow;
   if (defaultCity) {
-    document.getElementById("cityTitle").textContent = defaultCity.title;
-    document.getElementById("cityText").textContent = defaultCity.text;
-    document.getElementById("cityMovements").textContent = defaultCity.movements;
-    document.getElementById("cityPlaces").textContent = defaultCity.places;
+    const cityTitle = document.getElementById("cityTitle");
+    const cityText = document.getElementById("cityText");
+    const cityMovements = document.getElementById("cityMovements");
+    const cityPlaces = document.getElementById("cityPlaces");
+
+    if (cityTitle) cityTitle.textContent = defaultCity.title;
+    if (cityText) cityText.textContent = defaultCity.text;
+    if (cityMovements) cityMovements.textContent = defaultCity.movements;
+    if (cityPlaces) cityPlaces.textContent = defaultCity.places;
   }
 }
 
@@ -332,16 +361,27 @@ function wireCityMap() {
 function wireQuiz() {
   const quiz = document.getElementById("typeQuiz");
   const result = document.getElementById("quizResult");
+
+  if (!quiz || !result) return;
+
   const keys = Object.keys(quizProfiles);
+  const totalQuestions = 12;
 
   quiz.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const formData = new FormData(quiz);
-    const answers = [formData.get("q1"), formData.get("q2"), formData.get("q3"), formData.get("q4")];
+    const answers = [];
 
-    if (answers.some((item) => !item)) {
-      result.textContent = "Ответьте на все вопросы, чтобы получить результат.";
+    // Собираем все 12 ответов
+    for (let i = 1; i <= totalQuestions; i++) {
+      const answer = formData.get(`q${i}`);
+      if (answer) answers.push(answer);
+    }
+
+    if (answers.length < totalQuestions) {
+      result.textContent = `Ответьте на все ${totalQuestions} вопросов, чтобы получить результат. (Отвечено: ${answers.length})`;
+      result.style.color = "#b91c1c";
       return;
     }
 
@@ -352,16 +392,99 @@ function wireQuiz() {
       }
     });
 
-    const winner = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
-    result.textContent = quizProfiles[winner];
+    const sorted = Object.entries(score).sort((a, b) => b[1] - a[1]);
+    const winner = sorted[0][0];
+    const winnerScore = sorted[0][1];
+    const secondPlace = sorted[1];
+
+    // Процент совпадения
+    const percentage = Math.round((winnerScore / totalQuestions) * 100);
+
+    let resultText = quizProfiles[winner];
+    resultText += `\n\nСовпадение: ${percentage}% (${winnerScore} из ${totalQuestions} ответов)`;
+
+    // Если есть близкий второй результат
+    if (secondPlace && (winnerScore - secondPlace[1]) <= 2) {
+      resultText += `\nТакже близко: ${secondPlace[0] === 'stilyagi' ? 'Стиляги' : secondPlace[0] === 'lyubery' ? 'Люберы' : secondPlace[0] === 'punk' ? 'Панки' : secondPlace[0] === 'hippie' ? 'Хиппи' : 'Ньюверы'} (${secondPlace[1]} ответов)`;
+    }
+
+    result.textContent = resultText;
+    result.style.color = "#b91c1c";
+
+    // Прокрутка к результату
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 }
 
-// ===== INIT =====
+// ===== SLANG DICTIONARY TABS =====
+function wireSlangTabs() {
+  const tabsContainer = document.querySelector('.slang-nav');
+  if (!tabsContainer) {
+    console.log('Slang nav container not found');
+    return;
+  }
+
+  const tabs = tabsContainer.querySelectorAll('.slang-tab');
+  const panels = document.querySelectorAll('.slang-panel');
+
+  if (tabs.length === 0 || panels.length === 0) {
+    console.log('Slang tabs or panels not found');
+    return;
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const targetMovement = this.dataset.movement;
+      console.log('Tab clicked:', targetMovement);
+
+      // Update tabs - убираем active со всех
+      tabs.forEach(t => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+
+      // Добавляем active нажатой кнопке
+      this.classList.add('active');
+      this.setAttribute('aria-selected', 'true');
+
+      // Update panels - скрываем все
+      panels.forEach(panel => {
+        panel.classList.remove('active');
+      });
+
+      // Показываем нужную панель
+      const activePanel = document.querySelector(`.slang-panel[data-movement="${targetMovement}"]`);
+      if (activePanel) {
+        activePanel.classList.add('active');
+        console.log('Panel activated:', targetMovement);
+      }
+
+      // Smooth scroll to content
+      const slangContent = document.querySelector('#slang .slang-content');
+      if (slangContent) {
+        slangContent.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  console.log('Slang tabs initialized:', tabs.length, 'tabs found');
+}
+
+// ===== ЕДИНЫЙ INIT =====
 document.addEventListener("DOMContentLoaded", () => {
+  console.log('DOM fully loaded');
+
   renderTimeline();
   setActiveMovement(movements[0].id);
   renderMediaSelector();
   wireCityMap();
   wireQuiz();
+
+  // Небольшая задержка для уверенности, что DOM полностью отрисован
+  setTimeout(() => {
+    wireSlangTabs();
+  }, 100);
 });

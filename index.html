@@ -35,6 +35,7 @@
       <a href="#timeline">Лента</a>
       <a href="#visuals">Образы</a>
       <a href="#media">Музыка</a>
+      <a href="#slang">Словарь</a>
       <a href="#map">Карта</a>
       <a href="#quiz">Тест</a>
     </nav>
@@ -134,11 +135,421 @@
     </div>
   </section>
 
+  <!-- Slang Dictionary Section -->
+  <section class="container section" id="slang">
+    <div class="section__head">
+      <h2>Словарь жаргона неформалов</h2>
+      <p>Уникальный сленг каждого движения: от стиляг до ньюверов. Выберите движение, чтобы увидеть характерные слова и выражения.</p>
+    </div>
+
+    <div class="slang-nav" role="tablist" aria-label="Выбор движения">
+      <button class="slang-tab active" data-movement="stilyagi" role="tab" aria-selected="true">Стиляги</button>
+      <button class="slang-tab" data-movement="lyubery" role="tab" aria-selected="false">Люберы</button>
+      <button class="slang-tab" data-movement="punk" role="tab" aria-selected="false">Панки</button>
+      <button class="slang-tab" data-movement="hippie" role="tab" aria-selected="false">Хиппи</button>
+      <button class="slang-tab" data-movement="newwave" role="tab" aria-selected="false">Ньюверы</button>
+    </div>
+
+    <div class="slang-content">
+      <!-- Стиляги -->
+      <div class="slang-panel active" data-movement="stilyagi" role="tabpanel">
+        <div class="slang-category">
+          <h3>Люди</h3>
+          <dl class="slang-list">
+            <dt>Чувак</dt>
+            <dd>«Человек, Уважающий Высокую Американскую Культуру»; свой, проверенный парень</dd>
+
+            <dt>Чувиха / Чува</dt>
+            <dd>Девушка-стиляга, подруга</dd>
+
+            <dt>Батон</dt>
+            <dd>Молодая красивая девушка (не обязательно стиляга)</dd>
+
+            <dt>Румяные батоны</dt>
+            <dd>Девушки, не принадлежащие к стилягам, но участвующие в вечеринках</dd>
+
+            <dt>Жлоб</dt>
+            <dd>Человек, чуждый стилям, «не в теме», советский обыватель</dd>
+
+            <dt>Фазер</dt>
+            <dd>Отец, родитель (от англ. father)</dd>
+
+            <dt>Фраер</dt>
+            <dd>Простак, человек, которого можно обмануть</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Места</h3>
+          <dl class="slang-list">
+            <dt>Бродвей / Брод</dt>
+            <dd>Главная улица города, место сбора стиляг (в Москве — Горького, в Питере — Невский)</dd>
+
+            <dt>Хата</dt>
+            <dd>Квартира, место для вечеринки</dd>
+
+            <dt>Кок / Коктейль-холл</dt>
+            <dd>Место встреч, кафе</dd>
+
+            <dt>Аист</dt>
+            <dd>Популярное кафе в Москве, место тусовок стиляг</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Вещи и понятия</h3>
+          <dl class="slang-list">
+            <dt>Шузы</dt>
+            <dd>Обувь, особенно модная, импортная</dd>
+
+            <dt>Шузы на каше</dt>
+            <dd>Обувь на толстой белой подошве из синтетического каучука</dd>
+
+            <dt>Котлы</dt>
+            <dd>Наручные часы</dd>
+
+            <dt>Мани / Манюшки</dt>
+            <dd>Деньги (от англ. money)</dd>
+
+            <dt>Совпаршив / Совковый прикид</dt>
+            <dd>Одежда советского производства, нестильная</dd>
+
+            <dt>Прикид</dt>
+            <dd>Одежда, внешний вид, образ</dd>
+
+            <dt>Музыка на костях</dt>
+            <dd>Самодельные пластинки, записанные на рентгеновских снимках</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Действия и состояния</h3>
+          <dl class="slang-list">
+            <dt>Стилять</dt>
+            <dd>Танцевать (особенно джаз, рок-н-ролл)</dd>
+
+            <dt>Хилять</dt>
+            <dd>Неспешно гулять, прогуливаться с целью «себя показать»</dd>
+
+            <dt>Кинуть брэк</dt>
+            <dd>Пройтись по Бродвею, чтобы продемонстрировать свой стиль</dd>
+
+            <dt>Бараться</dt>
+            <dd>Заниматься сексом</dd>
+
+            <dt>Чуча</dt>
+            <dd>Песня из фильма «Серенада Солнечной долины», культовая для стиляг</dd>
+
+            <dt>Шнурки в стакане</dt>
+            <dd>Кодовая фраза: «родители дома», нельзя приводить гостей</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Люберы -->
+      <div class="slang-panel" data-movement="lyubery" role="tabpanel">
+        <div class="slang-category">
+          <h3> Культура и ценности</h3>
+          <dl class="slang-list">
+            <dt>Качалка</dt>
+            <dd>Подвальное помещение с самодельными тренажёрами, где любера занимались культуризмом</dd>
+
+            <dt>Территория</dt>
+            <dd>Район, который контролирует группа люберов; «своя» зона влияния</dd>
+
+            <dt>Свои / Чужие</dt>
+            <dd>Социальный маркер: «свои» — любера и сочувствующие, «чужие» — неформалы (хиппи, панки, стиляги)</dd>
+
+            <dt>Авторитет</dt>
+            <dd>Старший, уважаемый член группы, лидер</dd>
+
+            <dt>Коммунар</dt>
+            <dd>Участник идеологизированной группы люберов, пропагандирующей «советские ценности»</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Внешний вид</h3>
+          <dl class="slang-list">
+            <dt>Клетчатые штаны / Трубы</dt>
+            <dd>Символ люберов: широкие штаны из клетчатой ткани (часто шились из занавесок)</dd>
+
+            <dt>Короткая стрижка</dt>
+            <dd>Обязательный элемент образа, противопоставление «волосатым» неформалам</dd>
+
+            <dt>Качок</dt>
+            <dd>Парень, занимающийся силовыми тренировками, культурист</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Поведение и действия</h3>
+          <dl class="slang-list">
+            <dt>Чистить</dt>
+            <dd>Избивать представителей «чужих» субкультур (хиппи, панков) за длинные волосы и «неправильный» вид</dd>
+
+            <dt>Наводить порядок</dt>
+            <dd>Эвфемизм для агрессивных действий против неформалов</dd>
+
+            <dt>Тусоваться на районе</dt>
+            <dd>Проводить время в своей территории, демонстрировать силу и единство</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Панки -->
+      <div class="slang-panel" data-movement="punk" role="tabpanel">
+        <div class="slang-category">
+          <h3> Идентификация и приветствия</h3>
+          <dl class="slang-list">
+            <dt>Хой</dt>
+            <dd>Главное приветствие панков; также боевой клич</dd>
+
+            <dt>Панк / Панкер / Пунк</dt>
+            <dd>Представитель субкультуры</dd>
+
+            <dt>Панкерша</dt>
+            <dd>Девушка-панк</dd>
+
+            <dt>Ветеран</dt>
+            <dd>Опытный, уважаемый панк с большим стажем</dd>
+
+            <dt>Пионер</dt>
+            <dd>Новичок в панк-движении</dd>
+
+            <dt>Свинья</dt>
+            <dd>Известный панк с экстравагантным поведением</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Музыка и концерты</h3>
+          <dl class="slang-list">
+            <dt>Сейшн</dt>
+            <dd>Концерт, музыкальная встреча (от англ. session)</dd>
+
+            <dt>Гиг</dt>
+            <dd>Концерт (от англ. gig)</dd>
+
+            <dt>Электричка</dt>
+            <dd>Электрогитара</dd>
+
+            <dt>Стояк</dt>
+            <dd>Синтезатор</dd>
+
+            <dt>Спивка</dt>
+            <dd>Песня</dd>
+
+            <dt>Грязный звук</dt>
+            <dd>Намеренно искажённое, перегруженное звучание — эстетический идеал панка</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Внешний вид</h3>
+          <dl class="slang-list">
+            <dt>Ирокез / Дикобраз</dt>
+            <dd>Причёска с гребнем из волос, часто окрашенных</dd>
+
+            <dt>Кок</dt>
+            <dd>Взбитая чёлка, начёс</dd>
+
+            <dt>Петушок / Хохолок</dt>
+            <dd>Разновидности панк-причёсок</dd>
+
+            <dt>Тоннель</dt>
+            <dd>Много серёжек в ухе, растянутые мочки</dd>
+
+            <dt>Прикид</dt>
+            <dd>Одежда, панковский стиль: косухи, булавки, рваная одежда</dd>
+
+            <dt>Гады</dt>
+            <dd>Громоздкие ботинки (часто армейские)</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Идеология и сленг</h3>
+          <dl class="slang-list">
+            <dt>Анархия / Маман</dt>
+            <dd>Центральная идея панка; «Маман» — ироничное название анархии</dd>
+
+            <dt>Коза</dt>
+            <dd>Приветственный жест: два оттопыренных пальца (указательный и мизинец)</dd>
+
+            <dt>Пого</dt>
+            <dd>Стиль танца на концертах: толкотня, прыжки, «слэм»</dd>
+
+            <dt>Стебаться</dt>
+            <dd>Иронизировать, издеваться, высмеивать</dd>
+
+            <dt>Говнари</dt>
+            <dd>Презрительное название псевдопанков, не знающих сути движения</dd>
+
+            <dt>Лох</dt>
+            <dd>Человек, подражающий панкам без понимания идеологии</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category warning">
+          <h3>Осторожно: негативные термины</h3>
+          <dl class="slang-list">
+            <dt>Аскать</dt>
+            <dd>Попрошайничать, собирать деньги на улице</dd>
+
+            <dt>Сидеть на игле / на пыхе</dt>
+            <dd>Употреблять наркотики (инъекционно / курением)</dd>
+
+            <dt>Угар</dt>
+            <dd>Сильное опьянение, похмелье; также — весёлая, хаотичная вечеринка</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Хиппи -->
+      <div class="slang-panel" data-movement="hippie" role="tabpanel">
+        <div class="slang-category">
+          <h3>Люди и отношения</h3>
+          <dl class="slang-list">
+            <dt>Пипл</dt>
+            <dd>Люди, народ, сообщество хиппи (от англ. people)</dd>
+
+            <dt>Герла</dt>
+            <dd>Девушка (от англ. girl)</dd>
+
+            <dt>Цивил / Цивильный</dt>
+            <dd>Обычный человек, не принадлежащий к «системе»</dd>
+
+            <dt>Пионер</dt>
+            <dd>Новичок в движении хиппи</dd>
+
+            <dt>Олдовый</dt>
+            <dd>Опытный, «старый» хиппи с большим стажем</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3> Места и события</h3>
+          <dl class="slang-list">
+            <dt>Вписка</dt>
+            <dd>Временное жильё, возможность переночевать у друзей-хиппи</dd>
+
+            <dt>Флэт</dt>
+            <dd>Квартира, место для сбора, «база» (от англ. flat)</dd>
+
+            <dt>Сейшн / Сейшен</dt>
+            <dd>Музыкальная встреча, концерт, джем-сейшн</dd>
+
+            <dt>Трасса</dt>
+            <dd>Дорога, путь автостопом; также — образ жизни в движении</dd>
+
+            <dt>Граунд</dt>
+            <dd>Земля, природа; место для кемпинга, палаточного лагеря</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Вещи и атрибуты</h3>
+          <dl class="slang-list">
+            <dt>Фенечка</dt>
+            <dd>Браслет из ниток, бисера или кожи, символ дружбы и памяти</dd>
+
+            <dt>Хайратник</dt>
+            <dd>Повязка на лбу для удержания длинных волос (от англ. hair)</dd>
+
+            <dt>Ксивник</dt>
+            <dd>Маленькая сумочка для документов («ксивы»)</dd>
+
+            <dt>Хайр</dt>
+            <dd>Длинные волосы (от англ. hair)</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Действия и состояния</h3>
+          <dl class="slang-list">
+            <dt>Вписываться</dt>
+            <dd>Находить ночлег, присоединяться к компании</dd>
+
+            <dt>Плейсоваться</dt>
+            <dd>Устраиваться, находить место (от англ. place)</dd>
+
+            <dt>Найтать</dt>
+            <dd>Ночевать (от англ. night)</dd>
+
+            <dt>Колдаться</dt>
+            <dd>Мёрзнуть, испытывать холод</dd>
+
+            <dt>Хипповать</dt>
+            <dd>Вести образ жизни хиппи, следовать философии движения</dd>
+
+            <dt>Лайф в кайф</dt>
+            <dd>Жизненный принцип: «жизнь — в удовольствие»</dd>
+          </dl>
+        </div>
+      </div>
+
+      <!-- Ньюверы -->
+      <div class="slang-panel" data-movement="newwave" role="tabpanel">
+        <div class="slang-category">
+          <h3>Музыка и стиль</h3>
+          <dl class="slang-list">
+            <dt>Нью-вейв / Ньювер</dt>
+            <dd>Представитель новой волны; музыкальный стиль, сочетающий панк-энергию с электронной эстетикой</dd>
+
+            <dt>Постпанк</dt>
+            <dd>Музыкальное направление, развившееся из панка: более мелодичное, атмосферное, экспериментальное</dd>
+
+            <dt>Попперы</dt>
+            <dd>Вещества (алкилнитриты), популярные в дискотечной культуре 80-х для усиления ощущений</dd>
+
+            <dt>Дискотечная тусовка</dt>
+            <dd>Место встреч ньюверов: клубы, дискотеки с новой волной и синти-попом</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Эстетика и поведение</h3>
+          <dl class="slang-list">
+            <dt>Эпатаж</dt>
+            <dd>Намеренное нарушение норм, провокационное поведение — часть имиджа</dd>
+
+            <dt>Андерграунд</dt>
+            <dd>Неофициальная, неформальная культура, противопоставленная мейнстриму</dd>
+
+            <dt>Прикид</dt>
+            <dd>Стильная, часто авангардная одежда: чёрный цвет, асимметрия, элементы готики и футуризма</dd>
+
+            <dt>Фейс</dt>
+            <dd>Лицо, внешний вид, образ (от англ. face)</dd>
+          </dl>
+        </div>
+
+        <div class="slang-category">
+          <h3>Сленг общения</h3>
+          <dl class="slang-list">
+            <dt>Тусовка</dt>
+            <dd>Встреча, сборище единомышленников; также — круг общения</dd>
+
+            <dt>Вписать / Вписка</dt>
+            <dd>Присоединиться к компании, найти место в тусовке (унаследовано от хиппи)</dd>
+
+            <dt>Пипл</dt>
+            <dd>Люди, публика, аудитория (унаследовано от хиппи)</dd>
+
+            <dt>Сейшн</dt>
+            <dd>Музыкальная вечеринка, джем-сессия</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Quiz Section -->
   <section class="container section" id="quiz">
     <div class="section__head">
       <h2>Шуточный тест: «Определи свой тип»</h2>
-      <p>Ответьте на 4 вопроса. Результат покажет, с какой субкультурой у вас больше всего эстетических совпадений.</p>
+      <p>Ответьте на 12 вопросов. Результат покажет, с какой субкультурой у вас больше всего эстетических совпадений.</p>
     </div>
 
     <form id="typeQuiz" class="quiz" novalidate>
@@ -176,6 +587,78 @@
         <label><input type="radio" name="q4" value="punk"> Панк-рок, хардкор и сырой звук</label>
         <label><input type="radio" name="q4" value="hippie"> Авторская песня, психоделика и акустика</label>
         <label><input type="radio" name="q4" value="newwave"> New wave, постпанк и электронные эксперименты</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>5. Ваше отношение к власти и правилам?</legend>
+        <label><input type="radio" name="q5" value="stilyagi" required> Хочу нравиться и быть частью системы</label>
+        <label><input type="radio" name="q5" value="lyubery"> Уважаю силу и порядок, но только справедливый</label>
+        <label><input type="radio" name="q5" value="punk"> Полный отказ от правил, анархия и бунт</label>
+        <label><input type="radio" name="q5" value="hippie"> Игнорирую систему, живу по своим принципам</label>
+        <label><input type="radio" name="q5" value="newwave"> Критикую, но через творчество и иронию</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>6. Где вы предпочитаете общаться?</legend>
+        <label><input type="radio" name="q6" value="stilyagi" required> На танцплощадке или в модном кафе</label>
+        <label><input type="radio" name="q6" value="lyubery"> На районе, во дворе или в качалке</label>
+        <label><input type="radio" name="q6" value="punk"> В сквоте или подпольном клубе</label>
+        <label><input type="radio" name="q6" value="hippie"> На природе, в палаточном лагере</label>
+        <label><input type="radio" name="q6" value="newwave"> На арт-вечеринке или в лофте</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>7. Ваше отношение к деньгам?</legend>
+        <label><input type="radio" name="q7" value="stilyagi" required> Хочу зарабатывать, чтобы хорошо одеваться</label>
+        <label><input type="radio" name="q7" value="lyubery"> Деньги не главное, главное — уважение пацанов</label>
+        <label><input type="radio" name="q7" value="punk"> Деньги — это зло, живу одним днём</label>
+        <label><input type="radio" name="q7" value="hippie"> Материальное не важно, важен духовный путь</label>
+        <label><input type="radio" name="q7" value="newwave"> Творю ради искусства, а не ради прибыли</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>8. Как вы выражаете свою позицию?</legend>
+        <label><input type="radio" name="q8" value="stilyagi" required> Через модный прикид и манеру говорить</label>
+        <label><input type="radio" name="q8" value="lyubery"> Через физическую силу и защиту своих</label>
+        <label><input type="radio" name="q8" value="punk"> Через эпатаж, ирокез и агрессивную музыку</label>
+        <label><input type="radio" name="q8" value="hippie"> Через длинные волосы, фенечки и пацифизм</label>
+        <label><input type="radio" name="q8" value="newwave"> Через экспериментальное искусство и стиль</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>9. Ваше отношение к алкоголю и веществам?</legend>
+        <label><input type="radio" name="q9" value="stilyagi" required> Качественный виски или коктейль на вечеринке</label>
+        <label><input type="radio" name="q9" value="lyubery"> Иногда пиво с пацанами, но без фанатизма</label>
+        <label><input type="radio" name="q9" value="punk"> Панк-рок и алкоголь — неразделимы</label>
+        <label><input type="radio" name="q9" value="hippie"> Иногда травка для расширения сознания</label>
+        <label><input type="radio" name="q9" value="newwave"> Эксперименты ради творческого опыта</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>10. Что для вас дружба?</legend>
+        <label><input type="radio" name="q10" value="stilyagi" required> Общие тусовки и взаимный пиар</label>
+        <label><input type="radio" name="q10" value="lyubery"> Братство до конца, круговая порука</label>
+        <label><input type="radio" name="q10" value="punk"> Свой круг, проверка временем и ситуацией</label>
+        <label><input type="radio" name="q10" value="hippie"> Все люди братья, люблю всех</label>
+        <label><input type="radio" name="q10" value="newwave"> Творческий союз единомышленников</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>11. Как вы относитесь к будущему?</legend>
+        <label><input type="radio" name="q11" value="stilyagi" required> Верю в прогресс и красивую жизнь</label>
+        <label><input type="radio" name="q11" value="lyubery"> Главное — стабильность и порядок</label>
+        <label><input type="radio" name="q11" value="punk"> Будущего нет, есть только здесь и сейчас</label>
+        <label><input type="radio" name="q11" value="hippie"> Верю в духовную эволюцию человечества</label>
+        <label><input type="radio" name="q11" value="newwave"> Будущее за новыми формами искусства</label>
+      </fieldset>
+
+      <fieldset>
+        <legend>12. Ваша реакция на конфликт?</legend>
+        <label><input type="radio" name="q12" value="stilyagi" required> Избегать, сохранить лицо и стиль</label>
+        <label><input type="radio" name="q12" value="lyubery"> Решить силой, если задели своих</label>
+        <label><input type="radio" name="q12" value="punk"> Агрессивно ответить, устроить скандал</label>
+        <label><input type="radio" name="q12" value="hippie"> Попытаться договориться, включить любовь</label>
+        <label><input type="radio" name="q12" value="newwave"> Иронизировать, перевести в абсурд</label>
       </fieldset>
 
       <button type="submit" class="quiz__submit">Показать результат</button>
