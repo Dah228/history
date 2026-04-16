@@ -124,36 +124,52 @@ const movements = [
 ];
 
 // ===== CITY STORIES =====
+// ===== CITY STORIES =====
 const cityStories = {
   moscow: {
     title: "Москва",
+    image: "https://spb.hse.ru/data/2022/04/07/1803235552/1.jpg",
     text: "Один из главных центров неформалов: ранние стиляги, хиппи, панк-среда и ньювейверские площадки. В МИФИ (клуб «Рокуэлл Кент») формировались важные музыкальные связи 1980-х.",
     movements: "Стиляги, панки, хиппи, ньювейверы",
-    places: "Пушкинская площадь, клуб «Рокуэлл Кент» (МИФИ), квартирники, дискотеки, городские бульвары."
+    places: "Кафе «Синяя птица», улицы (Арбат, Пушкинская), парки (ЦПКиО им. Горького), театры (на Таганке), клуб «Рокуэлл Кент» (МИФИ), квартирники, дискотеки, городские бульвары.",
+    gallery: [
+      "https://kulturologia.ru/files/u30116/kvartirnik-1.jpg",
+      "https://kulturologia.ru/files/u30116/kvartirniki-3.jpg",
+      "https://kulturologia.ru/files/u30116/kvartirnik-2.JPG",
+      "https://kulturologia.ru/files/u30116/akvarium.JPG"
+    ]
   },
   lyubertsy: {
     title: "Люберцы",
+    image: "https://stoneforest.ru/wp-content/uploads/2022/01/lyubery-3.jpg",
     text: "Промышленный пригород Москвы, где феномен подпольных качалок и дворовой самоорганизации дал начало движению люберов.",
     movements: "Люберы",
-    places: "Подвальные самодельные тренажерные залы, дворовые территории, пригородные районы."
-  },
-  leningrad: {
-    title: "Ленинград",
-    text: "Крупный центр советского андеграунда: здесь развивались панк, рок и хиппи-среда с собственной сценой и сетью неформального общения.",
-    movements: "Панки, хиппи, ньювейверы",
-    places: "Клубные площадки, квартирники, уличные точки встреч молодежи."
-  },
-  riga: {
-    title: "Рига",
-    text: "Один из балтийских узлов, через который в молодежную среду активнее входили западные музыкальные и модные импульсы.",
-    movements: "Хиппи, ньювейверы",
-    places: "Клубы, концертные площадки, городские молодежные тусовки."
+    places: "Городской ДК (Дом культуры), Железнодорожная станция Люберцы и электрички, «Качалки» в подвалах, Улицы и дворы, подвальные самодельные тренажерные залы, дворовые территории.",
+    gallery: []
   },
   tallinn: {
     title: "Таллин",
+    image: "https://im2.kommersant.ru/Issues.photo/WEEKEND/2024/005/KMO_141501_08876_1_t214_192704.jpg",
     text: "Балтийский город, где альтернативная музыкальная среда и эстетика «новой волны» ощущались особенно заметно.",
     movements: "Хиппи, ньювейверы",
-    places: "Дискотеки, клубные пространства, неформальные художественные сообщества."
+    places: "Кафе «Pegasus», Кафе «Moskva», Горхолл (Linnahall), KultuuriKatel (Котел культуры), дискотеки, клубные пространства, неформальные художественные сообщества.",
+    gallery: []
+  },
+  riga: {
+    title: "Рига",
+    image: "https://img.gazeta.ru/files3/217/19566217/upload-GettyImages-833269704-pic4_zoom-1500x1500-24951.jpg",
+    text: "Один из балтийских узлов, через который в молодежную среду активнее входили западные музыкальные и модные импульсы.",
+    movements: "Хиппи, ньювейверы",
+    places: "Кафе «Синтез», Улица Калькю, Старый город, «Ригас роз» (Rīgas rozes), прибрежная зона, клубы, концертные площадки, городские молодежные тусовки.",
+    gallery: []
+  },
+  leningrad: {
+    title: "Санкт-Петербург (Ленинград)",
+    image: "https://history.ru/images/common/32/8O6j0516rbEn3cR2QiqVT380EM0PSvLtzub1yfXx.jpg",
+    text: "Крупный центр советского андеграунда: здесь развивались панк, рок и хиппи-среда с собственной сценой и сетью неформального общения.",
+    movements: "Панки, хиппи, ньювейверы",
+    places: "Ленинградский рок-клуб (ул. Рубинштейна, 13), кафе «Сайгон» (Невский, 49), котельная «Камчатка» (Братьев Грибакиных, 3), «Пушкинская-10», «Эльфийский садик», клубные площадки, квартирники, уличные точки встреч молодежи.",
+    gallery: []
   }
 };
 
@@ -164,6 +180,7 @@ const cityGeo = {
   riga: [56.9496, 24.1052],
   tallinn: [59.4370, 24.7536]
 };
+
 
 // ===== QUIZ PROFILES =====
 const quizProfiles = {
@@ -286,6 +303,7 @@ function updateMedia(id) {
   if (mediaSelect) mediaSelect.value = id;
 }
 
+
 // ===== WIRE CITY MAP (LEAFLET) =====
 function wireCityMap() {
   const cityMapCanvas = document.getElementById("cityMapCanvas");
@@ -333,27 +351,71 @@ function wireCityMap() {
       const cityText = document.getElementById("cityText");
       const cityMovements = document.getElementById("cityMovements");
       const cityPlaces = document.getElementById("cityPlaces");
+      const cityImage = document.getElementById("cityImage");
+      const cityGallery = document.getElementById("cityGallery");
 
       if (cityTitle) cityTitle.textContent = story.title;
       if (cityText) cityText.textContent = story.text;
       if (cityMovements) cityMovements.textContent = story.movements;
       if (cityPlaces) cityPlaces.textContent = story.places;
+
+      if (cityImage && story.image) {
+        cityImage.src = story.image;
+        cityImage.alt = story.title;
+        cityImage.style.display = "block";
+      }
+
+      // Галерея квартирников (только для Москвы)
+      if (cityGallery && story.gallery && story.gallery.length > 0) {
+        const galleryGrid = cityGallery.querySelector('.gallery-grid');
+        galleryGrid.innerHTML = '';
+        story.gallery.forEach(imgSrc => {
+          const img = document.createElement('img');
+          img.src = imgSrc;
+          img.alt = 'Квартирник';
+          galleryGrid.appendChild(img);
+        });
+        cityGallery.style.display = "block";
+      } else if (cityGallery) {
+        cityGallery.style.display = "none";
+      }
+
       map.panTo(latlng);
     });
   });
 
-  // Set default city
+  // Set default city (Moscow)
   const defaultCity = cityStories.moscow;
   if (defaultCity) {
     const cityTitle = document.getElementById("cityTitle");
     const cityText = document.getElementById("cityText");
     const cityMovements = document.getElementById("cityMovements");
     const cityPlaces = document.getElementById("cityPlaces");
+    const cityImage = document.getElementById("cityImage");
+    const cityGallery = document.getElementById("cityGallery");
 
     if (cityTitle) cityTitle.textContent = defaultCity.title;
     if (cityText) cityText.textContent = defaultCity.text;
     if (cityMovements) cityMovements.textContent = defaultCity.movements;
     if (cityPlaces) cityPlaces.textContent = defaultCity.places;
+
+    if (cityImage && defaultCity.image) {
+      cityImage.src = defaultCity.image;
+      cityImage.alt = defaultCity.title;
+      cityImage.style.display = "block";
+    }
+
+    if (cityGallery && defaultCity.gallery && defaultCity.gallery.length > 0) {
+      const galleryGrid = cityGallery.querySelector('.gallery-grid');
+      galleryGrid.innerHTML = '';
+      defaultCity.gallery.forEach(imgSrc => {
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = 'Квартирник';
+        galleryGrid.appendChild(img);
+      });
+      cityGallery.style.display = "block";
+    }
   }
 }
 

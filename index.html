@@ -192,14 +192,20 @@
       <div class="city-map" role="group" aria-label="Карта городов СССР">
         <p class="city-map__hint">Нажмите на город, чтобы открыть локальную историю.</p>
         <div id="cityMapCanvas" class="city-map__canvas" aria-label="Интерактивная карта городов"></div>
-        <p class="city-map__credit">Карта: OpenStreetMap.</p>
+        <p class="city-map__credit map-attribution">Карта: OpenStreetMap.</p>
       </div>
 
       <article class="city-story" aria-live="polite">
         <h3 id="cityTitle">Выберите город</h3>
+        <img id="cityImage" class="city-story__image" src="" alt="Город">
         <p id="cityText">Нажмите на маркер на карте, чтобы увидеть локальную историю неформальных движений.</p>
         <p><strong>Ключевые движения:</strong> <span id="cityMovements">-</span></p>
         <p><strong>Пространства активности:</strong> <span id="cityPlaces">-</span></p>
+
+        <div id="cityGallery" class="city-gallery" style="display: none;">
+          <h4>Фотографии квартирников</h4>
+          <div class="gallery-grid"></div>
+        </div>
       </article>
     </div>
   </section>
