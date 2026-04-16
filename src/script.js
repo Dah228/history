@@ -9,6 +9,18 @@ function getRandomLyuberyImage() {
   return images[Math.floor(Math.random() * images.length)];
 }
 
+// ===== RANDOM IMAGE FOR FARTSOVSHCHIKI =====
+function getRandomFartsovshchikiImage() {
+  const images = [
+    "https://my-cccp.ru/wp-content/uploads/2015/06/5.png",
+    "https://news.store.rambler.ru/img/e2e72ba711f5c7e0c77fa43b26120029?img-1-resize=width%3A1280%2Cheight%3A1280%2Cfit%3Acover&img-format=auto",
+    "https://news.store.rambler.ru/img/e91f4bbb4cde355ebf9c96b920b094e9?img-format=auto&img-1-resize=height:400,fit:max&img-2-filter=sharpen",
+    "https://ic.pics.livejournal.com/maxim_nm/51556845/3622128/3622128_original.jpg",
+    "https://cs4.pikabu.ru/post_img/2016/05/31/10/14647117131135571.jpg"
+  ];
+  return images[Math.floor(Math.random() * images.length)];
+}
+
 // ===== MOVEMENTS DATA =====
 const movements = [
   {
@@ -120,10 +132,33 @@ const movements = [
       { name: "Новая волна в СССР", url: "https://youtu.be/oUrfSIouvBk?si=jTEd9QGc_-oAnrzH" },
       { name: "Клубная культура 1980-х в Москве", url: "https://youtu.be/jjImh7QiVFw?si=MkoN3261v5ZpW3Yh" }
     ]
+  },
+  {
+    id: "fartsovshchiki",
+    years: "1950-е - 1990-е",
+    title: "Фарцовщики",
+    image: getRandomFartsovshchikiImage(),
+    summary: "Теневые проводники западной культуры и эстетики дефицита: культ «фирмы», демонстративная модность, неформальные сети обмена и тихий подрыв государственной монополии на стиль и потребление.",
+    style: "Джинсы (особенно Levi's — символ статуса), яркие рубашки, пиджаки необычного кроя, кожаные куртки, кроссовки или туфли западных брендов, солнцезащитные очки. Сами фарцовщики выглядели как витрина «западного стиля».",
+    music: "Рок-н-ролл, джаз, позже — рок (The Beatles, The Rolling Stones). Активно распространяли западную музыку через пластинки и магнитофонные записи.",
+    slang: "«фирма» (оригинальная западная вещь), «шмотки» (одежда), «пласт» (пластинка), «толкнуть» (продать), «достать» (найти дефицитный товар), «клиент» (покупатель).",
+    centers: "Москва (гостиницы «Интурист», «Метрополь», «Националь»), Ленинград (Невский проспект), портовые города (Одесса, Рига) — через моряков.",
+    reasons: "1) Дефицит товаров в СССР. 2) Закрытость страны и ограниченный доступ к западной культуре. 3) Интерес молодежи к Западу, желание отличаться. 4) Жёсткий контроль государства — запреты только усиливали интерес.",
+    impact: "Распространяли западную культуру, формировали альтернативную экономику, способствовали появлению субкультур (стиляг), подрывали монополию государства на товары и информацию. Но при этом считались спекулянтами и преследовались (штрафы, тюрьма).",
+    playlist: [
+      { name: "Elvis Presley - Jailhouse Rock", url: "https://youtu.be/gj0Rz-uP4Mk?si=zJgCug7IO9UEZ5VL" },
+      { name: "The Beatles - Yesterday", url: "https://www.youtube.com/watch?v=wXTJBr9tt8Q&list=RDwXTJBr9tt8Q&start_radio=1" },
+      { name: "Chuck Berry - You Never Can Tell", url: "https://www.youtube.com/watch?v=55_9o8LoWiw&list=RD55_9o8LoWiw&start_radio=1" }
+    ],
+    videos: [
+      { name: "Фарцовщики в СССР", url: "https://youtu.be/Sy1MsXEk_4o?si=kLkwuPFwcr8VULzP" },
+      { name: "История главных советских фарцовщиков", url: "https://www.youtube.com/watch?v=AIiil5LeoMc" }
+    ]
   }
 ];
 
-// ===== CITY STORIES =====
+
+
 // ===== CITY STORIES =====
 const cityStories = {
   moscow: {
@@ -188,7 +223,8 @@ const quizProfiles = {
   lyubery: "💪 Ваш тип: Любер. Вам ближе дисциплина, сила и районная солидарность.",
   punk: "🤘 Ваш тип: Панк. Вам важны эпатаж, громкое самовыражение и отказ от шаблонов.",
   hippie: "✌️ Ваш тип: Хиппи. Ваш ориентир — свобода, пацифизм и неформальное общение.",
-  newwave: "🎹 Ваш тип: Ньювейвер. Вы выбираете эстетический эксперимент, музыку и независимый вкус."
+  newwave: "🎹 Ваш тип: Ньювейвер. Вы выбираете эстетический эксперимент, музыку и независимый вкус.",
+  fartsovshchiki: "💼 Ваш тип: Фарцовщик. Вы цените редкие вещи, умеете находить дефицит и разбираетесь в западных трендах."
 };
 
 // ===== DOM ELEMENTS =====
@@ -419,6 +455,9 @@ function wireCityMap() {
   }
 }
 
+
+
+
 // ===== WIRE QUIZ =====
 function wireQuiz() {
   const quiz = document.getElementById("typeQuiz");
@@ -467,7 +506,12 @@ function wireQuiz() {
 
     // Если есть близкий второй результат
     if (secondPlace && (winnerScore - secondPlace[1]) <= 2) {
-      resultText += `\nТакже близко: ${secondPlace[0] === 'stilyagi' ? 'Стиляги' : secondPlace[0] === 'lyubery' ? 'Люберы' : secondPlace[0] === 'punk' ? 'Панки' : secondPlace[0] === 'hippie' ? 'Хиппи' : 'Ньюверы'} (${secondPlace[1]} ответов)`;
+      const secondName = secondPlace[0] === 'stilyagi' ? 'Стиляги' :
+          secondPlace[0] === 'lyubery' ? 'Люберы' :
+              secondPlace[0] === 'punk' ? 'Панки' :
+                  secondPlace[0] === 'hippie' ? 'Хиппи' :
+                      secondPlace[0] === 'newwave' ? 'Ньюверы' : 'Фарцовщики';
+      resultText += `\nТакже близко: ${secondName} (${secondPlace[1]} ответов)`;
     }
 
     result.textContent = resultText;
