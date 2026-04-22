@@ -164,9 +164,9 @@ const cityStories = {
   moscow: {
     title: "Москва",
     image: "https://spb.hse.ru/data/2022/04/07/1803235552/1.jpg",
-    text: "Один из главных центров неформалов: ранние стиляги, хиппи, панк-среда и ньювейверские площадки. В МИФИ (клуб «Рокуэлл Кент») формировались важные музыкальные связи 1980-х.",
-    movements: "Стиляги, панки, хиппи, ньювейверы",
-    places: "Кафе «Синяя птица», улицы (Арбат, Пушкинская), парки (ЦПКиО им. Горького), театры (на Таганке), клуб «Рокуэлл Кент» (МИФИ), квартирники, дискотеки, городские бульвары.",
+    text: "Один из главных центров неформалов: ранние стиляги, хиппи, панк-среда и ньювейверские площадки. В МИФИ (клуб «Рокуэлл Кент») формировались важные музыкальные связи 1980-х. <strong>Центры фарцовщиков:</strong> гостиницы «Интурист», «Метрополь», «Националь» — места встреч с иностранцами для обмена валюты и покупки дефицитных вещей.",
+    movements: "Стиляги, панки, хиппи, ньювейверы, фарцовщики",
+    places: "Кафе «Синяя птица», улицы (Арбат, Пушкинская), парки (ЦПКиО им. Горького), театры (на Таганке), клуб «Рокуэлл Кент» (МИФИ), квартирники, дискотеки, городские бульвары. <strong>Для фарцовщиков:</strong> гостиницы «Интурист», «Метрополь», «Националь».",
     gallery: [
       "https://kulturologia.ru/files/u30116/kvartirnik-1.jpg",
       "https://kulturologia.ru/files/u30116/kvartirniki-3.jpg",
@@ -182,6 +182,22 @@ const cityStories = {
     places: "Городской ДК (Дом культуры), Железнодорожная станция Люберцы и электрички, «Качалки» в подвалах, Улицы и дворы, подвальные самодельные тренажерные залы, дворовые территории.",
     gallery: []
   },
+  leningrad: {
+    title: "Санкт-Петербург (Ленинград)",
+    image: "https://history.ru/images/common/32/8O6j0516rbEn3cR2QiqVT380EM0PSvLtzub1yfXx.jpg",
+    text: "Крупный центр советского андеграунда: здесь развивались панк, рок и хиппи-среда с собственной сценой и сетью неформального общения. <strong>Центр фарцовщиков:</strong> Невский проспект — главное место встреч с иностранцами и обмена «фирменными» вещами.",
+    movements: "Панки, хиппи, ньювейверы, фарцовщики",
+    places: "Ленинградский рок-клуб (ул. Рубинштейна, 13), кафе «Сайгон» (Невский, 49), котельная «Камчатка» (Братьев Грибакиных, 3), «Пушкинская-10», «Эльфийский садик», клубные площадки, квартирники, уличные точки встреч молодежи. <strong>Для фарцовщиков:</strong> Невский проспект.",
+    gallery: []
+  },
+  riga: {
+    title: "Рига",
+    image: "https://img.gazeta.ru/files3/217/19566217/upload-GettyImages-833269704-pic4_zoom-1500x1500-24951.jpg",
+    text: "Один из балтийских узлов, через который в молодежную среду активнее входили западные музыкальные и модные импульсы. <strong>Портовый город:</strong> через моряков поступали западные пластинки, джинсы и другие дефицитные товары.",
+    movements: "Хиппи, ньювейверы, фарцовщики",
+    places: "Кафе «Синтез», Улица Калькю, Старый город, «Ригас роз» (Rigas rozes), прибрежная зона, клубы, концертные площадки, городские молодежные тусовки. <strong>Порт:</strong> место встреч с моряками для обмена товарами.",
+    gallery: []
+  },
   tallinn: {
     title: "Таллин",
     image: "https://im2.kommersant.ru/Issues.photo/WEEKEND/2024/005/KMO_141501_08876_1_t214_192704.jpg",
@@ -190,30 +206,25 @@ const cityStories = {
     places: "Кафе «Pegasus», Кафе «Moskva», Горхолл (Linnahall), KultuuriKatel (Котел культуры), дискотеки, клубные пространства, неформальные художественные сообщества.",
     gallery: []
   },
-  riga: {
-    title: "Рига",
-    image: "https://img.gazeta.ru/files3/217/19566217/upload-GettyImages-833269704-pic4_zoom-1500x1500-24951.jpg",
-    text: "Один из балтийских узлов, через который в молодежную среду активнее входили западные музыкальные и модные импульсы.",
-    movements: "Хиппи, ньювейверы",
-    places: "Кафе «Синтез», Улица Калькю, Старый город, «Ригас роз» (Rīgas rozes), прибрежная зона, клубы, концертные площадки, городские молодежные тусовки.",
-    gallery: []
-  },
-  leningrad: {
-    title: "Санкт-Петербург (Ленинград)",
-    image: "https://history.ru/images/common/32/8O6j0516rbEn3cR2QiqVT380EM0PSvLtzub1yfXx.jpg",
-    text: "Крупный центр советского андеграунда: здесь развивались панк, рок и хиппи-среда с собственной сценой и сетью неформального общения.",
-    movements: "Панки, хиппи, ньювейверы",
-    places: "Ленинградский рок-клуб (ул. Рубинштейна, 13), кафе «Сайгон» (Невский, 49), котельная «Камчатка» (Братьев Грибакиных, 3), «Пушкинская-10», «Эльфийский садик», клубные площадки, квартирники, уличные точки встреч молодежи.",
+  odessa: {
+    title: "Одесса",
+    image: "https://my-cccp.ru/wp-content/uploads/2015/06/5.png",
+    text: "<strong> Крупнейший портовый город СССР:</strong> через одесский порт моряки привозили западные пластинки, джинсы Levi's, жевательную резинку и другие дефицитные товары. Здесь процветала фарцовка — обмен валюты и продажа «фирменных» вещей.",
+    movements: "Фарцовщики",
+    places: "Одесский морской порт, Приморский бульвар, улица Дерибасовская, гостиницы для иностранцев, кафе и рестораны в центре города.",
     gallery: []
   }
 };
+
+
 
 const cityGeo = {
   moscow: [55.7558, 37.6173],
   lyubertsy: [55.6769, 37.8932],
   leningrad: [59.9311, 30.3609],
   riga: [56.9496, 24.1052],
-  tallinn: [59.4370, 24.7536]
+  tallinn: [59.4370, 24.7536],
+  odessa: [46.4775, 30.7326]
 };
 
 
@@ -346,7 +357,7 @@ function wireCityMap() {
   const cityText = document.getElementById("cityText");
 
   if (typeof L === "undefined" || !cityMapCanvas) {
-    if (cityText) cityText.textContent = "Карта не загрузилась. Проверьте подключение к интернету и перезагрузите страницу.";
+    if (cityText) cityText.innerHTML = "Карта не загрузилась. Проверьте подключение к интернету и перезагрузите страницу.";
     return;
   }
 
@@ -390,10 +401,10 @@ function wireCityMap() {
       const cityImage = document.getElementById("cityImage");
       const cityGallery = document.getElementById("cityGallery");
 
-      if (cityTitle) cityTitle.textContent = story.title;
-      if (cityText) cityText.textContent = story.text;
-      if (cityMovements) cityMovements.textContent = story.movements;
-      if (cityPlaces) cityPlaces.textContent = story.places;
+      if (cityTitle) cityTitle.innerHTML = story.title;
+      if (cityText) cityText.innerHTML = story.text;
+      if (cityMovements) cityMovements.innerHTML = story.movements;
+      if (cityPlaces) cityPlaces.innerHTML = story.places;
 
       if (cityImage && story.image) {
         cityImage.src = story.image;
@@ -431,7 +442,7 @@ function wireCityMap() {
     const cityGallery = document.getElementById("cityGallery");
 
     if (cityTitle) cityTitle.textContent = defaultCity.title;
-    if (cityText) cityText.textContent = defaultCity.text;
+    if (cityText) cityText.innerHTML = defaultCity.text;  // ✅ ИСПРАВЛЕНО: было textContent
     if (cityMovements) cityMovements.textContent = defaultCity.movements;
     if (cityPlaces) cityPlaces.textContent = defaultCity.places;
 
